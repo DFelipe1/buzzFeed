@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="logo">
+        <img src="../../../assets/images/logo.png" alt="BuzzFeed">
+        <h3>{{ title }}</h3>
+    </div>
+    <div *ngIf="!finished" class="question">
+        <p>{{ quentionSelected.question }}</p>
+    </div>
+    <div *ngIf="!finished" class="options">
+        <button 
+            *ngFor="let option of quentionSelected.options; let i = index"
+            (click)="playerChoose(option.alias)"
+            class="option"
+        >
+            {{option.name}}
+        </button>
+    </div>
+    <div *ngIf="finished" class="result">
+        <h3>Seu resultado é:</h3>
+        <p>{{ answerSelected }}</p>
+    </div>
+</div>
